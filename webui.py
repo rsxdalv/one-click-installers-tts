@@ -53,7 +53,7 @@ def install_dependencies():
     # Clone webui to our computer
     run_cmd("git clone https://github.com/rsxdalv/tts-generation-webui.git")
     run_cmd("git clone https://github.com/rsxdalv/bark.git tts-generation-webui/models/bark")
-    run_cmd("git clone https://github.com/rsxdalv/tortoise-tts.git tts-generation-webui/models/turtoise-tts")
+    run_cmd("git clone https://github.com/rsxdalv/tortoise-tts.git tts-generation-webui/models/tortoise")
     run_cmd("pip install python-dotenv")
     run_cmd("pip install gradio")
     run_cmd("pip install soundfile") # torchaudio platform windows
@@ -71,7 +71,7 @@ def update_dependencies():
     run_cmd("python -m pip install .")
     os.chdir(script_dir)
 
-    os.chdir("tts-generation-webui/models/turtoise-tts")
+    os.chdir("tts-generation-webui/models/tortoise")
     run_cmd("git pull")
 
     # Installs/Updates dependencies from all requirements.txt
