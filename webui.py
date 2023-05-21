@@ -64,6 +64,14 @@ def install_dependencies():
 
 
 def update_dependencies():
+    # Update the webui dependencies
+    os.chdir("tts-generation-webui")
+    run_cmd("git pull")
+
+    run_cmd("pip install -r requirements.txt")
+
+    os.chdir(script_dir)
+
     os.chdir("tts-generation-webui/models/bark")
     run_cmd("git pull")
 
