@@ -64,31 +64,22 @@ def install_dependencies():
 
 
 def update_dependencies():
-    # os.chdir("tts-generation-webui/models/bark")
-    # run_cmd("git pull")
+    os.chdir("tts-generation-webui/models/bark")
+    run_cmd("git pull")
 
-    # # Installs/Updates dependencies from all requirements.txt
-    # run_cmd("python -m pip install .")
-    # os.chdir(script_dir)
+    # Installs/Updates dependencies from all requirements.txt
+    run_cmd("python -m pip install .")
+    os.chdir(script_dir)
 
-    # os.chdir("tts-generation-webui/models/tortoise")
-    # run_cmd("git pull")
+    os.chdir("tts-generation-webui/models/tortoise")
+    run_cmd("git pull")
 
-    # # Installs/Updates dependencies from all requirements.txt
-    # run_cmd("pip install transformers==4.19.0")
-    # run_cmd("pip install -r requirements.txt")
-    # run_cmd("python setup.py install")
-    # run_cmd("conda install -y --channel=numba llvmlite")
+    # Installs/Updates dependencies from all requirements.txt
+    run_cmd("pip install transformers==4.19.0")
+    run_cmd("pip install -r requirements.txt")
+    run_cmd("python setup.py install")
+    run_cmd("conda install -y --channel=numba llvmlite")
 
-    # os.chdir(script_dir)
-    # if os.path.exists("tts-generation-webui/models/tortoise/tts"):
-    #     shutil.rmtree("tts-generation-webui/models/tortoise/tts")
-
-    # clone if doesn't exist
-    # if not os.path.exists("tts-generation-webui/models/tortoise/tts"):
-    #     run_cmd("git clone https://github.com/rsxdalv/tortoise-tts.git tts-generation-webui/models/tortoise")
-    
-    
     os.chdir(script_dir)
     # clone if doesn't exist
     if not os.path.exists("tts-generation-webui/models/bark_voice_cloning_hubert_quantizer"):
@@ -99,7 +90,6 @@ def update_dependencies():
 
     # Installs/Updates dependencies from all requirements.txt
     run_cmd("pip install -r requirements.txt")
-            
 
 
 def run_model():
