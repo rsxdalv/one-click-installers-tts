@@ -91,9 +91,11 @@ def update_dependencies():
     os.chdir(script_dir)
     # clone if doesn't exist
     if not os.path.exists("tts-generation-webui/models/bark_voice_cloning_hubert_quantizer"):
-        run_cmd("git clone https://github.com/rsxdalv/bark-voice-cloning-HuBERT-quantizer.git tts-generation-webui/models/bark_voice_cloning_hubert_quantizer")
+        run_cmd("git clone --branch hubert_only https://github.com/rsxdalv/bark-voice-cloning-HuBERT-quantizer bark_voice_cloning_hubert_quantizer")
 
     os.chdir("tts-generation-webui/models/bark_voice_cloning_hubert_quantizer")
+    # checkout to the correct branch
+    run_cmd("git checkout hubert_only")
     run_cmd("git pull")
 
     # Installs/Updates dependencies from all requirements.txt
