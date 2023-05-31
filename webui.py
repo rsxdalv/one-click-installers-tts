@@ -68,6 +68,8 @@ def update_dependencies():
     os.chdir("tts-generation-webui")
     run_cmd("git pull")
 
+    run_cmd("conda install -y -c pytorch ffmpeg") # LGPL
+
     run_cmd("pip install -r requirements.txt")
 
     os.chdir(script_dir)
@@ -91,7 +93,7 @@ def update_dependencies():
     os.chdir(script_dir)
     # clone if doesn't exist
     if not os.path.exists("tts-generation-webui/models/bark_voice_cloning_hubert_quantizer"):
-        run_cmd("git clone --branch hubert_only https://github.com/rsxdalv/bark-voice-cloning-HuBERT-quantizer bark_voice_cloning_hubert_quantizer")
+        run_cmd("git clone --branch hubert_only https://github.com/rsxdalv/bark-voice-cloning-HuBERT-quantizer tts-generation-webui/models/bark_voice_cloning_hubert_quantizer")
 
     os.chdir("tts-generation-webui/models/bark_voice_cloning_hubert_quantizer")
     # checkout to the correct branch
