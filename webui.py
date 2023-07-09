@@ -53,22 +53,26 @@ def install_dependencies():
 
     # Clone webui to our computer
     run_cmd("conda install -y -c pytorch ffmpeg")  # LGPL
+    run_cmd("conda install -y -c conda-forge nodejs=18.16.1")
     run_cmd("git clone https://github.com/rsxdalv/tts-generation-webui.git")
 
     # Install the webui dependencies
     update_dependencies()
 
+def update_conda():
+    # Update conda
+    run_cmd("conda update -y -n base -c defaults conda")
 
 def update_dependencies():
     # Update the webui dependencies
     os.chdir("tts-generation-webui")
     run_cmd("git pull")
     run_cmd("pip install -r requirements.txt")
+    run_cmd("python update.py")
     os.chdir(script_dir)
 
-    # For tortoise tts
+    # For tortoise tts, rvc
     # run_cmd("conda install -y --channel=numba llvmlite")
-
 
 def run_model():
     os.chdir("tts-generation-webui")
@@ -78,7 +82,8 @@ def run_model():
 if __name__ == "__main__":
     # Verifies we are in a conda environment
     check_env()
-
+    # update_conda()
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("--update", action="store_true", help="Update the web UI.")
     args = parser.parse_args()
